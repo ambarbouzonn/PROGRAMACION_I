@@ -1,5 +1,3 @@
-import random
-
 # Reciba un numero y determine si ese numero es par o no.
 
 def es_par_o_impar(numero):
