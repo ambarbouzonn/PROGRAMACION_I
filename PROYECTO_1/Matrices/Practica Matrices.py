@@ -2,23 +2,22 @@ def cargar_datos():
     M = int(input("Ingrese la cantidad de filas: "))
     N = int(input("Ingrese la cantidad de columnas: "))
 
+    matriz = [[0]*N for _ in range(M)]
 
-    matriz_1 = [[0]*N for _ in range(M)]
-
-    for i in range(len(matriz_1)):
-        for j in range(len(matriz_1[i])):
-            matriz_1[i][j] = int(input("Ingrese un número: "))
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            matriz[i][j] = int(input("Ingrese un número: "))
     
-    for i in range(len(matriz_1)):
-        for j in range(len(matriz_1[i])):
-            print(f"{matriz_1[i][j]:5}", end = " ")
+    for i in range(len(matriz)):
+        for j in range(len(matriz[i])):
+            print(f"{matriz[i][j]:5}", end = " ")
         print("")
     
-    return matriz_1
-
+    return matriz
 
 matriz_1 = cargar_datos()
 matriz_2 = cargar_datos()
+
 
 def validar_dimensiones(matriz_1, matriz_2):
     
@@ -55,6 +54,8 @@ def multiplicar_matrices(matriz_1, matriz_2):
 if resultado == False:
     print("Las matrices no se pueden multiplicar porque las columnas del primero no coinciden con las filas del segundo.")
 else:
+    print("\n"
+          "El resultado de las multiplicaciones de las matrices es:")
     resultado_multiplicacion = multiplicar_matrices(matriz_1, matriz_2)
-    print(resultado_multiplicacion)
+
 
