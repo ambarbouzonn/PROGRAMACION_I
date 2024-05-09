@@ -30,8 +30,8 @@ resultado = validar_dimensiones(matriz_1, matriz_2)
 
 
 def multiplicar_matrices(matriz_1, matriz_2):
-    M = len(matriz_1)
-    N = len(matriz_2[0])
+    M = len(matriz_1) # Fila
+    N = len(matriz_2[0]) # Columna
     L = len(matriz_1[0])
 
     matriz_resultado = [[0]*N for _ in range(M)]

@@ -1,4 +1,4 @@
-def get_init(mensaje: str, minimo: int, maximo: int) -> int:
+def get_int(mensaje: str, minimo: int, maximo: int) -> int:
     numero = input(mensaje)
     numero = int(numero)
 
@@ -15,7 +15,7 @@ def get_init(mensaje: str, minimo: int, maximo: int) -> int:
 # nota = get_init("Ingrese su nota: ", 1, 10)
 
 
-def get_init_2(mensaje: str, mensaje_error: str, minimo: int, maximo: int, reintentos: int) -> int|None:
+def get_int_2(mensaje: str, mensaje_error: str, minimo: int, maximo: int, reintentos: int) -> int|None:
         numero = input(mensaje)
         numero = int(numero)
 
