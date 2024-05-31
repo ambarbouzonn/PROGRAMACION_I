@@ -1,7 +1,7 @@
 from Input import *
 
 def crear_empleado(id: int, nombre: str, apellido: str, dni: int, puesto: str, salario: int):
-    dicionario_empleado = {
+    diccionario_empleado = {
         "id": id,
         "nombre": nombre,
         "apellido": apellido,
@@ -10,7 +10,7 @@ def crear_empleado(id: int, nombre: str, apellido: str, dni: int, puesto: str, s
         "salario": salario
     }
 
-    return dicionario_empleado
+    return diccionario_empleado
 
 
 def obtener_puesto(mensaje: str, mensaje_error: str):
@@ -43,9 +43,9 @@ def ingresar_empleado_lista(lista_empleados: list[dict]):
 
             salario = get_int_2("Ingrese su salario: ", "Error, ingrese su salario correctamente.", 234315)
 
-            dicionario_empleado = crear_empleado(id, nombre, apellido, dni, puesto, salario)
+            diccionario_empleado = crear_empleado(id, nombre, apellido, dni, puesto, salario)
 
-            lista_empleados.append(dicionario_empleado)
+            lista_empleados.append(diccionario_empleado)
 
             seguir = input("Desea ingresar otro empleado? S/N").upper()
             if seguir != "S":
@@ -83,7 +83,7 @@ def modificar_empleado(lista_empleados: list[dict]):
             empleado_encontrado = True
             print("Se encontro empleado.\n\n")
             while empleado_encontrado == True:
-                opcion = input("Indique que es lo que desea modificar: ").lower
+                opcion = input("Indique que es lo que desea modificar: ").lower()
                 if opcion == "q":
                     return
                 if opcion not in ["dni", "nombre", "apellido", "puesto", "salario"]:

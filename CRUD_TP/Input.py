@@ -20,7 +20,14 @@ def get_int(mensaje:str, mensaje_error:str, minimo:int, maximo:int, reintentos:i
 # Con minimo
 def get_int_2(mensaje: str, mensaje_error: str, minimo: int) -> int:
     while True:
-        numero = int(input(mensaje))
+        numero = input(mensaje)
+
+        if numero.isalpha() or numero == "":
+            print(mensaje_error)
+            continue
+
+        numero = int(numero)
+
         if numero > minimo:
             return numero
         else:
@@ -29,7 +36,14 @@ def get_int_2(mensaje: str, mensaje_error: str, minimo: int) -> int:
 # Con min y max
 def get_int_3(mensaje: str, mensaje_error: str, minimo: int, maximo: int) -> int:
     while True:
-        numero = int(input(mensaje))
+        numero = input(mensaje)
+
+        if numero.isalpha() or numero == "":
+            print(mensaje_error)
+            continue
+
+        numero = int(numero)
+
         if maximo > numero > minimo:
             return numero
         else:
@@ -69,8 +83,8 @@ def get_string(mensaje:str, mensaje_error:str, longitud:int, reintentos:int) -> 
 
 def get_string_2(mensaje: str, mensaje_error: str, longuitud_max: int) -> str:
     while True:
-        caracteres = input(mensaje).strip()
-        if len(caracteres) <= longuitud_max and caracteres.isalpha() and caracteres.istitle():
+        caracteres = input(mensaje).strip().capitalize()
+        if len(caracteres) <= longuitud_max and caracteres.isalpha():
             return caracteres
         else:
             print(mensaje_error)
