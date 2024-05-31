@@ -151,8 +151,9 @@ def encontrar_sospechoso():
 
     for nombre_sospechoso in lista_sospechosos:
         if adn_encontrado in lista_sospechosos[nombre_sospechoso]:
-            return nombre_sospechoso
-    return "Son todos inocentes"
+            respuesta = nombre_sospechoso
+    respuesta = "Son todos inocentes"
+    return respuesta
 
 
 resultado = encontrar_sospechoso()
