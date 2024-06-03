@@ -47,33 +47,86 @@ class Video:
         fecha_lanzamiento  = self.fecha_lanzamiento.split("-")
         self.fecha_lanzamiento = datetime(int(fecha_lanzamiento[0]), int(fecha_lanzamiento[1]), int(fecha_lanzamiento[2]))
 
-    
+    # A
     def normalizar_videos(videos):
         for video in videos:
             video.dividir_titulo()
             video.obtener_codigo_url()
             video.formatear_fecha()
 
+
+    # B
     def mostrar_temas(videos):
         for video in videos:
             video.mostrar_tema()
-
-    def obtener_sesion(self):
-        pass
         
 
-
+    # C
     def ordenar_sesion(videos):
-        return sorted(videos, key=)
+        videos.sort(key=lambda video: int(video.sesion))
+        print("Sesiones ordenadas por número:")
+
+
+    # D
+    def promedio_vistas(videos):
+        total_videos = len(videos)
+
+        if total_videos == 0:
+            print("No hay videos en la lista.")
+            return
+        
+        suma = sum(video.vistas for video in videos)
+        promedio = suma / total_videos
+        
+        print(f"El promedio de vistas es: {promedio:,}")
+
     
+    # E
+    def max_vistas(videos):
+        if not videos:
+            print("No hay videos en la lista.")
+            return
+        
+        max_video = videos[0]
+        for video in videos[1:]:
+            if video.vistas > max_video.vistas:
+                max_video = video
+        
+        print("El video con más vistas es:")
+        max_video.mostrar_tema()
+
+    
+    # F
+    def buscar_codigo(videos, codigo_inicio: str):
+        resultados = [video for video in videos if video.codigo_url.startswith(codigo_inicio)]
+        if not resultados:
+            print(f"No se encontraron videos cuyo código comiencen con '{codigo_inicio}'")
+        else:
+            print(f"Videos cuyo código comienzan con '{codigo_inicio}':")
+            for video in resultados:
+                video.mostrar_tema()
 
 
-# video = Video("Trueno | Sesión #1", 25000000, 210, "https://www.youtube.com/watch?v=trueno1", "2020-06-05")
-# video.dividir_titulo()
-# video.obtener_codigo_url()
-# video.formatear_fecha()
-# video.mostrar_tema()
-# print(f"Colaborador: {video.colaborador}")
-# print(f"Sesión: {video.sesion}")
-# print(f"Código URL: {video.codigo_url}")
+    # G
+    def listar_por_colaborador(videos):
+        colaborador = input("Ingrese el nombre del colaborador: ").capitalize()
+        resultados = [video for video in videos if video.colaborador and video.colaborador.lower() == colaborador.lower()]
+        if not resultados:
+            print(f"No se encontraron videos del colaborador '{colaborador}'")
+        else:
+            print(f"Videos del colaborador '{colaborador}':")
+            for video in resultados:
+                video.mostrar_tema()
+
+    # H
+    def listar_por_mes(videos):
+        mes = int(input("Ingrese el mes que desea buscar: "))
+        resultados = [video for video in videos if video.fecha_lanzamiento.month == mes]
+        if not resultados:
+            print(f"No se encontraron videos lanzados en el mes {mes}.")
+        else:
+            print(f"Videos lanzados en el mes {mes}:")
+            for video in resultados:
+                video.mostrar_tema()
+        
 

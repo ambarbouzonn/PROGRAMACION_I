@@ -26,7 +26,6 @@ def mostrar_opciones():
         if opcion < 1 or opcion > 8:
             print("Opción invalida.\n")
             continue
-
         
         break
 

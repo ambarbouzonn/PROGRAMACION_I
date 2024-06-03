@@ -39,7 +39,7 @@ def menu():
     H. LISTAR POR MES
     I. SALIR
 
-    Elija una opción""").upper()
+    Elija una opción: """).upper()
 
 
         match opcion:
@@ -48,25 +48,22 @@ def menu():
             case "B":
                 Video.mostrar_temas(lista_videos)
             case "C":
-                pass
+                Video.ordenar_sesion(lista_videos)
+                Video.mostrar_temas(lista_videos)
             case "D":
-                pass
+                Video.promedio_vistas(lista_videos)
             case "E":
-                pass
+                Video.max_vistas(lista_videos)
             case "F":
-                pass
+                Video.buscar_codigo(lista_videos, "nick")
             case "G":
-                pass
+                Video.listar_por_colaborador(lista_videos)
             case "H":
-                pass
+                Video.listar_por_mes(lista_videos)
             case "I":
                 seguir = input("Seguro que quiere salir?")
                 if seguir == "si":
                     bandera_seguir = True
 
 
-# trueno = Video("Trueno | Sesión #1", 25000000, 210, "https://www.youtube.com/watch?v=trueno1", "2020-06-05")
-# trueno.formatear_fecha()
-# trueno.mostrar_tema()
-
-Video.ordenar_sesion(lista_videos)
+menu()

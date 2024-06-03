@@ -94,22 +94,43 @@ def modificar_empleado(lista_empleados: list[dict]):
             match opcion:
                 case "dni":
                     dni_nuevo = get_int_3("Ingrese el nuevo dni modificado: ", "Error, DNI invalido.", 5000000, 99999999)
-                    empleado["dni"] = dni_nuevo
+                    confirmacion = input("Esta seguro que quiere realizar ese cambio? S/N: ").upper()
+                    if confirmacion != "S":
+                        print("No se realizo el cambio.")
+                    else:
+                        empleado["dni"] = dni_nuevo
                 case "nombre":
                     nombre_nuevo = get_string_2("Ingrese su nombre modificado: ", "Error al ingresar el nombre.", 20)
-                    empleado["nombre"] = nombre_nuevo
+                    confirmacion = input("Esta seguro que quiere realizar ese cambio? S/N: ").upper()
+                    if confirmacion != "S":
+                        print("No se realizo el cambio.")
+                    else:
+                        empleado["nombre"] = nombre_nuevo
                 case "apellido":
                     apellido_nuevo = get_string_2("Ingrese su apellido modificado: ", "Error al ingresar el apellido.", 20)
-                    empleado["apellido"] = apellido_nuevo
+                    confirmacion = input("Esta seguro que quiere realizar ese cambio? S/N: ").upper()
+                    if confirmacion != "S":
+                        print("No se realizo el cambio.")
+                    else:
+                        empleado["apellido"] = apellido_nuevo
                 case "puesto":
                     puesto_nuevo = obtener_puesto("Ingrese su puesto modificado: ", "Error al ingresar el puesto.")
-                    empleado["puesto"] = puesto_nuevo
+                    confirmacion = input("Esta seguro que quiere realizar ese cambio? S/N: ").upper()
+                    if confirmacion != "S":
+                        print("No se realizo el cambio.")
+                    else:
+                        empleado["puesto"] = puesto_nuevo
                 case "salario":
                     salario_nuevo = get_int_2("Ingrese su salario modificado: ", "Error, ingrese su salario correctamente.", 234315)
-                    empleado["salario"] = salario_nuevo
+                    confirmacion = input("Esta seguro que quiere realizar ese cambio? S/N: ").upper()
+                    if confirmacion != "S":
+                        print("No se realizo el cambio.")
+                    else:
+                        empleado["salario"] = salario_nuevo
 
     if empleado_encontrado == False:
         print("No se encontro empleado.\n\n")
+
 
 
 def eliminar_empleado(lista_empleados: list[dict], lista_empleados_eliminados: list[dict]):
@@ -127,7 +148,7 @@ def eliminar_empleado(lista_empleados: list[dict], lista_empleados_eliminados: l
                 mostrar_empleado(empleado)
                 eliminado = empleado
                 break
-        
+
         if eliminado != None:
             lista_empleados.remove(eliminado)
             lista_empleados_eliminados.append(eliminado)
