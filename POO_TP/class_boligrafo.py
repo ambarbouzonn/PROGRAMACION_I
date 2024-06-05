@@ -1,5 +1,3 @@
-# Archivo: class_boligrafo.py
-
 class Bolígrafo:
     def __init__(self, color, grosor_punta):
         self.capacidad_tinta_maxima = 100
